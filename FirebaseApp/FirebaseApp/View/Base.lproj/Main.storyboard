@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5BR-EA-LG7">
-                                <rect key="frame" x="25" y="145" width="364" height="223"/>
+                                <rect key="frame" x="25" y="145" width="364" height="252.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="87P-wa-j8Y">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="23"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="52.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ToDo APP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9O-DS-09Z">
                                                 <rect key="frame" x="137.5" y="0.0" width="89" height="23"/>
@@ -28,8 +28,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1k-jG-gHY">
-                                                <rect key="frame" x="164" y="0.0" width="36" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1k-jG-gHY">
+                                                <rect key="frame" x="164" y="33" width="36" height="19.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" red="1" green="0.32445829079999999" blue="0.13163510749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -37,7 +37,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="DNP-as-DTH">
-                                        <rect key="frame" x="0.0" y="43" width="364" height="83"/>
+                                        <rect key="frame" x="0.0" y="72.5" width="364" height="83"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XRp-qx-eeD">
                                                 <rect key="frame" x="0.0" y="0.0" width="364" height="34"/>
@@ -52,7 +52,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="aiZ-u3-EMI">
-                                        <rect key="frame" x="0.0" y="146" width="364" height="77"/>
+                                        <rect key="frame" x="0.0" y="175.5" width="364" height="77"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kn1-c1-Xs5">
                                                 <rect key="frame" x="0.0" y="0.0" width="364" height="31"/>
@@ -89,11 +89,55 @@
                         <outlet property="emailTF" destination="XRp-qx-eeD" id="Bas-eL-aNs"/>
                         <outlet property="passwordTF" destination="Gwk-0Q-qdN" id="DFq-pT-EYt"/>
                         <outlet property="warningLbl" destination="c1k-jG-gHY" id="V5f-Y0-1ID"/>
+                        <segue destination="Orh-pi-zs3" kind="show" identifier="goToTasks" id="N3Q-HZ-vQd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7C-bY-G9G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="582.60869565217399" y="43.526785714285715"/>
+        </scene>
+        <!--Tasks-->
+        <scene sceneID="J1d-zH-wVe">
+            <objects>
+                <tableViewController id="Orh-pi-zs3" customClass="TasksTVC" customModule="FirebaseApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="WiQ-86-JjO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="IyQ-Vj-pVO">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IyQ-Vj-pVO" id="fM2-EM-Wpb">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Orh-pi-zs3" id="zrf-Wd-Dq5"/>
+                            <outlet property="delegate" destination="Orh-pi-zs3" id="t87-7f-Q4Z"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Tasks" id="EMW-Sp-wX9">
+                        <barButtonItem key="leftBarButtonItem" title="SignOut" id="vcR-PP-jw7">
+                            <connections>
+                                <action selector="SignOut:" destination="Orh-pi-zs3" id="Zhl-aF-rTy"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="4FT-nd-OIY">
+                                <connections>
+                                    <action selector="addNewTaskBtn:" destination="Orh-pi-zs3" id="Mpu-3C-BOm"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="AddImage" id="hYd-Zi-tjS"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DMk-cx-dZC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1265" y="44"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p5t-nb-bEV">

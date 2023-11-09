@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0D73842AFD435E0062DA39 /* TasksTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D73832AFD435E0062DA39 /* TasksTVC.swift */; };
+		FA0D73862AFD539A0062DA39 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D73852AFD539A0062DA39 /* User.swift */; };
+		FA0D73882AFD53AA0062DA39 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D73872AFD53AA0062DA39 /* Task.swift */; };
 		FAD1F9AE2AFBAB5B00279710 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1F9AD2AFBAB5B00279710 /* AppDelegate.swift */; };
 		FAD1F9B02AFBAB5B00279710 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1F9AF2AFBAB5B00279710 /* SceneDelegate.swift */; };
 		FAD1F9B52AFBAB5B00279710 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD1F9B32AFBAB5B00279710 /* Main.storyboard */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA0D73832AFD435E0062DA39 /* TasksTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTVC.swift; sourceTree = "<group>"; };
+		FA0D73852AFD539A0062DA39 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FA0D73872AFD53AA0062DA39 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		FAD1F9AA2AFBAB5B00279710 /* FirebaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD1F9AD2AFBAB5B00279710 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD1F9AF2AFBAB5B00279710 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD899E92AFC0D0200AD75E8 /* LoginVC.swift */,
+				FA0D73832AFD435E0062DA39 /* TasksTVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -109,6 +116,8 @@
 		FAD899E42AFC036000AD75E8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA0D73852AFD539A0062DA39 /* User.swift */,
+				FA0D73872AFD53AA0062DA39 /* Task.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,8 +211,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA0D73842AFD435E0062DA39 /* TasksTVC.swift in Sources */,
 				FAD1F9AE2AFBAB5B00279710 /* AppDelegate.swift in Sources */,
 				FAD1F9B02AFBAB5B00279710 /* SceneDelegate.swift in Sources */,
+				FA0D73862AFD539A0062DA39 /* User.swift in Sources */,
+				FA0D73882AFD53AA0062DA39 /* Task.swift in Sources */,
 				FAD899EA2AFC0D0200AD75E8 /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
