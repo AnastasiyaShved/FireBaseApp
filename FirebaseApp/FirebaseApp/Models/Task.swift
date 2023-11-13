@@ -24,7 +24,7 @@ struct Task {
         guard let snapshotValue = snapshot.value as? [String: Any],
               let title = snapshotValue[Constans.titleKey] as? String,
               let userId = snapshotValue[Constans.userIdKey] as? String,
-              let completed = snapshotValue[Constans.completedKey] as? Bool else { return }
+              let completed = snapshotValue[Constans.completedKey] as? Bool else { return nil }
         self.title = title
         self.userId = userId
         self.completed = completed

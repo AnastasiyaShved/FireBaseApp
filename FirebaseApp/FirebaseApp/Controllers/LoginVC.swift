@@ -11,19 +11,19 @@ import FirebaseAuth
 
 class LoginVC: UIViewController {
   
+    // MARK: - Properties
     var ref: DatabaseReference!
     var authStateDidChangeListenerHandle: AuthStateDidChangeListenerHandle!
-    
-    // MARK: - Properties
+
     @IBOutlet weak var warningLbl: UILabel!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
-    
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         warningLbl.alpha = 0
-        //вкидываем реальнуб ссылку на хранилище Firebase (withPath - категория, в которую будем записывать юзеров)
+        //вкидываем реальную ссылку на хранилище Firebase (withPath - категория, в которую будем записывать юзеров)
         ref = Database.database().reference(withPath: "users")
         authStateDidChangeListenerHandle = Auth.auth().addStateDidChangeListener({ [ weak self ] _, user in
             guard let _ = user else { return }
@@ -51,39 +51,30 @@ class LoginVC: UIViewController {
         Auth.auth().removeStateDidChangeListener(authStateDidChangeListenerHandle)
     }
     
-    
+    // MARK: - Actions
     @IBAction func loginBtn(_ sender: UIButton) {
         guard let email = emailTF.text,
               let password = passwordTF.text,
                 !email.isEmpty,
               !password.isEmpty
         else {
-            //TODO: - Info is uncorrect
+
             self.displayWarningLabel(withText: "Info is incorrect")
             return
         }
         Auth.auth().signIn(withEmail: email, password: password) { [ weak self ] user, error in
             if let error = error {
-                
-                //!! СКОРРЕКТИРОВАТЬ
-                self?.displayWarningLabel(withText: "Registration was incorrect = \(error)")
+                self?.displayWarningLabel(withText: "SignIn was incorrect = \(error)")
             } else if let user = user {
-                
+                self?.displayWarningLabel(withText: "No such user")
             }
         }
-        
     }
-    
-    
-    
-    
+
     @IBAction func registrationBtn(_ sender: UIButton) {
-        guard let email = emailTF.text,
-              let password = passwordTF.text,
-                !email.isEmpty,
-              !password.isEmpty
+        guard let email = emailTF.text, !email.isEmpty,
+              let password = passwordTF.text, !password.isEmpty
         else {
-            //TODO: - Info is uncorrect
             self.displayWarningLabel(withText: "Info is incorrect")
             return
         }
@@ -92,7 +83,7 @@ class LoginVC: UIViewController {
             if let error = error {
                 self?.displayWarningLabel(withText: "Registration was incorrect = \(error)")
             } else if let user = user {
-                ///нужн получить ссылку на категорию users в Firebase, стучимся в категорию  и в ней создаем child
+                ///нужно получить ссылку на категорию users в Firebase, стучимся в категорию  и в ней создаем child
                 let userref = self?.ref.child(user.user.uid)
                 userref?.setValue(["email": user.user.email])
                 ///для записи в базу активируем на сайте
@@ -100,6 +91,7 @@ class LoginVC: UIViewController {
         }
     }
     
+    // MARK: - Private func
     private func displayWarningLabel(withText text: String) {
         warningLbl.text = text
         UIView.animate(withDuration: 3,
@@ -110,6 +102,7 @@ class LoginVC: UIViewController {
             self?.warningLbl.alpha = 1
         } completion: { [weak self ] _ in
             self?.warningLbl.alpha = 0
+            self?.warningLbl.text = nil
         }
     }
     
@@ -118,7 +111,6 @@ class LoginVC: UIViewController {
         view.frame.origin.y = 0
         if let kayboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             view.frame.origin.y -= (kayboardSize.height / 2)
-
         }
     }
     
@@ -126,30 +118,17 @@ class LoginVC: UIViewController {
     private func kdWillHide() {
         view.frame.origin.y = 0
     }
-
     
-    
-    
-    
-    
-    
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    deinit {
+        print("!!! DEINITED loginVC !!!")
     }
-    */
-
 }
-//скрытие клавы по  нажани вводп
+
+// MARK: - Extension
+///скрытие клаву по  нажатии ввода
 extension LoginVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
+        return false
     }
 }
